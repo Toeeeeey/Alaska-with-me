@@ -2,6 +2,8 @@
 
 A complete static travel website built for GitHub and Vercel.
 
+The main page includes a late-May 2028 itinerary, per-person planning budget, interactive savings calculator, and a device-local Trip Ideas board.
+
 ## Deploy
 
 Upload everything in this folder to the root of a GitHub repository, then import that repository into Vercel. No build command or environment variables are required.

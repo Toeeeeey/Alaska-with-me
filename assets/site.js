@@ -28,4 +28,10 @@ function initIdeas(){
   draw();
 }
 function escapeHtml(value){const el=document.createElement('div');el.textContent=value;return el.innerHTML}
-renderDetail();initIdeas();
+function initSavings(){
+  const travelers=document.getElementById('travelers'),target=document.getElementById('target-budget'),months=document.getElementById('saving-months'),monthly=document.getElementById('monthly-saving'),caption=document.getElementById('saving-caption');
+  if(!travelers||!target||!months||!monthly||!caption) return;
+  const update=()=>{const people=Math.max(1,Number(travelers.value)||1),goal=Math.max(0,Number(target.value)||0),period=Math.max(1,Number(months.value)||1),amount=Math.ceil((people*goal)/period/100)*100;monthly.textContent=new Intl.NumberFormat('en-US',{style:'currency',currency:'THB',maximumFractionDigits:0}).format(amount).replace('THB','฿');caption.textContent=`for ${people} traveler${people===1?'':'s'} over ${period} months`};
+  [travelers,target,months].forEach(input=>input.addEventListener('input',update));update();
+}
+renderDetail();initIdeas();initSavings();
