@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Alaska 2028 — The Big Trip</title>
+<style>
+:root{
+  --ink:#0a1922; --deep:#102b3a; --mist:#f4f7f6; --paper:#fffdfa;
+  --ice:#dceef2; --muted:#5c747f; --line:rgba(15,45,58,.13); --shadow:0 22px 65px rgba(7,31,44,.14);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--mist);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+img{display:block}.serif{font-family:Georgia,"Times New Roman",serif}
+.hero{min-height:94vh;position:relative;display:flex;align-items:flex-end;padding:7vw;color:white;overflow:hidden;background:#173845}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,15,22,.03),rgba(3,15,22,.78))}
+.hero-inner{position:relative;z-index:2}.hero h1{font-size:clamp(64px,11vw,150px);line-height:.8;margin:0;letter-spacing:-.065em}.hero p{font-size:clamp(18px,2.2vw,30px);max-width:850px;line-height:1.4}
+.pill{display:inline-block;margin:5px 8px 0 0;padding:8px 14px;border:1px solid rgba(255,255,255,.5);border-radius:999px;background:rgba(255,255,255,.1);backdrop-filter:blur(10px)}
+nav{position:sticky;top:0;z-index:20;display:flex;gap:18px;overflow:auto;padding:12px 5vw;background:rgba(244,247,246,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+nav a{white-space:nowrap;text-decoration:none;color:var(--deep);font-size:14px}
+section{padding:78px 7vw}.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#5b7884}.headline{font-size:clamp(42px,6vw,86px);line-height:.94;letter-spacing:-.05em;margin:.2em 0 .35em}.lead{font-size:clamp(18px,2vw,27px);line-height:1.5;max-width:1000px;color:#334f5b}
+.mosaic{display:grid;grid-template-columns:1.15fr .85fr .85fr;grid-auto-rows:250px;gap:14px;margin-top:34px}.shot{position:relative;border-radius:28px;overflow:hidden;background:#c8d7dc;box-shadow:var(--shadow)}.shot.big{grid-row:span 2}.shot.wide{grid-column:span 2}.shot img{width:100%;height:100%;object-fit:cover;transition:transform .6s}.shot:hover img{transform:scale(1.025)}.shot:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(3,17,25,.72))}
+.cap{position:absolute;z-index:2;left:22px;right:22px;bottom:18px;color:white}.cap h3{font-family:Georgia,serif;font-size:31px;margin:0}.cap p{margin:5px 0 0;opacity:.9}
+.route{display:grid;grid-template-columns:1.02fr .98fr;gap:34px;align-items:center}.routebox{background:var(--deep);color:white;padding:30px;border-radius:32px;box-shadow:var(--shadow)}.route-line{display:flex;flex-wrap:wrap;gap:9px;align-items:center}.stop{padding:9px 13px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);border-radius:999px}.arrow{opacity:.45}
+.daystory{display:grid;grid-template-columns:.8fr 1.2fr;gap:24px;align-items:center;margin:36px 0 70px}.daystory.reverse{grid-template-columns:1.2fr .8fr}.storytext{padding:12px}.storytext .daynum{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#6e8994}.storytext h2{font-family:Georgia,serif;font-size:clamp(40px,5vw,70px);line-height:.98;margin:.18em 0}.storytext p{font-size:18px;line-height:1.6;color:#3e5964}
+.frame{height:560px;border-radius:32px;overflow:hidden;position:relative;box-shadow:var(--shadow);background:#cad9dd}.frame img{width:100%;height:100%;object-fit:cover}.frame .label{position:absolute;left:18px;bottom:18px;background:rgba(5,25,34,.65);color:white;padding:8px 12px;border-radius:999px;backdrop-filter:blur(8px);font-size:13px}
+.dark{background:var(--deep);color:white}.dark .eyebrow,.dark .lead{color:#c7dbe1}
+.gallery-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(290px,36vw);gap:15px;overflow-x:auto;padding:10px 0 20px;scroll-snap-type:x mandatory}.gallery-scroll .shot{height:420px;scroll-snap-align:start}
+.timeline{display:grid;gap:12px;margin-top:28px}.day{display:grid;grid-template-columns:88px 1fr auto;gap:18px;align-items:center;background:white;border:1px solid var(--line);border-radius:20px;padding:18px 20px;cursor:pointer}.day:hover{box-shadow:0 10px 30px rgba(10,35,50,.08)}.dnum{font-size:28px;font-weight:800;color:#7197a5}.day h4{margin:0 0 4px;font-size:20px}.day small{color:#69808a}.tag{font-size:12px;padding:7px 11px;background:#eaf3f5;border-radius:999px}.detail{display:none;grid-column:2/-1;color:#425d68;line-height:1.55}.day.open .detail{display:block}
+.budget{display:grid;grid-template-columns:1fr 1fr;gap:28px}.budgetbox{background:white;border:1px solid var(--line);border-radius:30px;padding:28px}.total{font-family:Georgia,serif;font-size:clamp(54px,7vw,94px);letter-spacing:-.045em}.toggle{display:flex;gap:9px;margin:18px 0}.toggle button{border:1px solid var(--line);background:white;padding:10px 15px;border-radius:999px;cursor:pointer}.toggle button.active{background:var(--deep);color:white}.bar{height:11px;border-radius:99px;background:#e5eded;overflow:hidden;margin:8px 0 18px}.bar span{display:block;height:100%;background:#8bb8c4;border-radius:99px}
+.sources{font-size:13px;line-height:1.65;color:#637b85}.sources a{color:#315e71}.cta{min-height:72vh;position:relative;display:grid;place-items:center;text-align:center;color:white;overflow:hidden;background:#173845}.cta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.cta:after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(3,18,26,.15),rgba(3,18,26,.78))}.cta-inner{position:relative;z-index:2}.cta h2{font-family:Georgia,serif;font-size:clamp(56px,8vw,112px);line-height:.9;margin:.1em 0}
+.fail{display:grid;place-items:center;width:100%;height:100%;background:linear-gradient(135deg,#9bbcc6,#1b4051);color:white;font-family:Georgia,serif;font-size:28px;text-align:center;padding:20px}
+@media(max-width:960px){.mosaic{grid-template-columns:1fr 1fr}.shot.big{grid-row:span 1}.shot.wide{grid-column:span 2}.route,.daystory,.daystory.reverse,.budget{grid-template-columns:1fr}.frame{height:470px}.gallery-scroll{grid-auto-columns:70vw}}
+@media(max-width:620px){section{padding:60px 20px}.hero{padding:28px 22px 52px;min-height:82vh}.hero h1{font-size:68px}.mosaic{grid-template-columns:1fr;grid-auto-rows:310px}.shot.wide{grid-column:auto}.frame{height:390px}.gallery-scroll{grid-auto-columns:84vw}.day{grid-template-columns:62px 1fr}.tag{display:none}.detail{grid-column:1/-1}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img data-srcs="https://img.cruisecritic.net/cms-sb/f/1005231/a9eaae5b53/alaska_princess-cruises_glacier-bay_article_8253.jpg?auto=format%2Cenhance&crop=entropy&fit=crop&ixlib=react-9.8.1&q=60&w=2048|https://cf-images.us-east-1.prod.boltdns.net/v1/static/593482582001/8b39a32c-039a-46ca-88c7-24bc0053797d/5156461d-b06a-47ec-92e9-aea6218a6e2c/1280x720/match/image.jpg">
+  <div class="hero-inner"><div class="eyebrow" style="color:#d8e8ed">OUR ALASKA STORY</div><h1 class="serif">ALASKA<br>2028</h1><p>เรือ 7 คืน • glacier • whale • เมืองไม้สีสด • รถไฟ 2 แบบ • Denali wildlife — แต่ทั้งหมดเดินทางแบบไม่เร่ง</p><span class="pill">14 days</span><span class="pill">Late Jun – Early Jul</span><span class="pill">2 people</span></div>
+</div>
+
+<nav><a href="#wow">Highlights</a><a href="#route">Route</a><a href="#cruise">Cruise</a><a href="#juneau">Juneau</a><a href="#ports">Ports</a><a href="#denali">Denali</a><a href="#timeline">14 Days</a><a href="#calendar">Plan Calendar</a><a href="#budget">Budget</a></nav>
+
+<section id="wow">
+<div class="eyebrow">WHAT WE'LL ACTUALLY DO</div>
+<div class="headline serif">More than trains.<br>More than glaciers.</div>
+<p class="lead">เวอร์ชันนี้ตั้งใจให้ภาพกิจกรรมหลากหลายกว่าเดิม — มีทั้งชีวิตบนเรือ, เมือง port, whale watching, waterfall, wildlife และวิวระหว่างทาง</p>
+<div class="mosaic">
+  <div class="shot big"><img data-srcs="https://img.cruisecritic.net/cms-sb/f/1005231/a9eaae5b53/alaska_princess-cruises_glacier-bay_article_8253.jpg?auto=format%2Cenhance&crop=entropy&fit=crop&ixlib=react-9.8.1&q=55&w=2048|https://www.worldofcruising.co.uk/uploads/images/_size1400/53090865/Princess-cruises-alaska-guide.webp"><div class="cap"><h3>Glacier Day</h3><p>ดู glacier จาก deck แบบไม่ต้องเดิน</p></div></div>
+  <div class="shot"><img data-srcs="https://images.squarespace-cdn.com/content/v1/5fb210d07f71d5494d254bb9/49a87655-57d9-4e2c-9a1d-aef6a5b435c0/Large%2B%284800px%2Blongest%2Bedge%2C%2BStandard%2Bprint%2C%2BA4%29_WW1440344.jpg?format=2500w|https://frontiersuites.com/wp-content/uploads/2023/08/Alaska_whale_watching_2011-e1558350716251.jpg"><div class="cap"><h3>Whale Watching</h3><p>Juneau • humpback territory</p></div></div>
+  <div class="shot"><img data-srcs="https://media.ktoo.org/2013/08/HBryant_nugget-falls-1.jpg|https://www.inquirer.com/resizer/v2/IEWEARCQYVEOPF3YE55WV3PCPE.jpg?auth=7ed671de81c2294f04b10469fa41addc4643ad780659d9a3ac518f3756aa4d2f&height=507&smart=true&width=760"><div class="cap"><h3>Mendenhall</h3><p>glacier + Nugget Falls</p></div></div>
+  <div class="shot"><img data-srcs="https://smallshipadventurecruises.com/wp-content/uploads/1742139911115.jpg|https://www.celebritycruises.com/content/dam/celebrity/new-images/destinations/alaska/ketchikan/creek-street-ketchikan-alaska-3840x2160.jpg"><div class="cap"><h3>Ketchikan</h3><p>เมืองไม้สีสดริมน้ำ</p></div></div>
+  <div class="shot"><img data-srcs="https://cdn.mos.cms.futurecdn.net/sBnpBKRoz9fe5TsVBEK2BM-1600-80.jpg|https://www.nps.gov/dena/learn/nature/images/bear-grass.jpg"><div class="cap"><h3>Wildlife</h3><p>grizzly / moose / caribou ถ้าโชคดี</p></div></div>
+</div>
+</section>
+
+<section id="route">
+<div class="route">
+  <div><div class="eyebrow">THE ROUTE</div><div class="headline serif">Sea first.<br>Land after.</div><p class="lead">บินเข้า Vancouver แล้ว cruise northbound 7 คืน จบ Whittier ก่อนต่อ Anchorage และ Denali ทำให้ทริปไหลไปทางเดียว ไม่ต้องกลับจุดเดิม</p></div>
+  <div class="routebox"><div class="route-line"><span class="stop">BKK</span><span class="arrow">→</span><span class="stop">Vancouver</span><span class="arrow">→</span><span class="stop">Ketchikan</span><span class="arrow">→</span><span class="stop">Juneau</span><span class="arrow">→</span><span class="stop">Skagway</span><span class="arrow">→</span><span class="stop">Glacier Bay</span><span class="arrow">→</span><span class="stop">College Fjord</span><span class="arrow">→</span><span class="stop">Whittier</span><span class="arrow">→</span><span class="stop">Anchorage</span><span class="arrow">→</span><span class="stop">Denali</span></div></div>
+</div>
+</section>
+
+<section id="cruise" class="dark">
+<div class="eyebrow">DAYS 2–8 • LIFE ON THE SHIP</div>
+<div class="headline serif">The cruise is part<br>of the destination.</div>
+<p class="lead">มีทั้ง sail-away จาก Vancouver, sea day, balcony morning, glacier viewing บน deck และคืนที่กลับมานอนห้องเดิม — ตรงนี้คือเหตุผลที่ทริป 14 วันยังรู้สึกสบาย</p>
+<div class="gallery-scroll">
+  <div class="shot"><img data-srcs="https://cdn.getyourguide.com/image/format%3Dauto%2Cfit%3Dcrop%2Cgravity%3Dcenter%2Cquality%3D60%2Cwidth%3D900%2Cheight%3D900%2Cdpr%3D1/tour_img/64b136cc4ac2d.jpeg|https://www.paramountcruises.com/images/24059/1/abQDOVxvIZEnjpkV_Vancouver-KoningsdamCanadaPlaceSunset.jpg?auto=compress%2Cformat&fit=crop&h=900&q=65&w=900"><div class="cap"><h3>Vancouver sail-away</h3></div></div>
+  <div class="shot"><img data-srcs="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Ocean_princess_balcony_cabin.jpg/960px-Ocean_princess_balcony_cabin.jpg"><div class="cap"><h3>Balcony cabin</h3><p>ห้องเดิม 7 คืน</p></div></div>
+  <div class="shot"><img data-srcs="https://img.cruisecritic.net/cms-sb/f/1005231/a9eaae5b53/alaska_princess-cruises_glacier-bay_article_8253.jpg?auto=format%2Cenhance&crop=entropy&fit=crop&ixlib=react-9.8.1&q=55&w=2048|https://www.worldofcruising.co.uk/uploads/images/_size1400/53090865/Princess-cruises-alaska-guide.webp"><div class="cap"><h3>On deck</h3><p>glacier + park ranger commentary</p></div></div>
+  <div class="shot"><img data-srcs="https://cf-images.us-east-1.prod.boltdns.net/v1/static/593482582001/8b39a32c-039a-46ca-88c7-24bc0053797d/5156461d-b06a-47ec-92e9-aea6218a6e2c/1280x720/match/image.jpg|https://www.paramountcruises.com/images/24059/1/abQDOVxvIZEnjpkV_Vancouver-KoningsdamCanadaPlaceSunset.jpg?auto=compress%2Cformat&fit=crop&h=900&q=65&w=900"><div class="cap"><h3>Long summer evenings</h3></div></div>
+</div>
+</section>
+
+<section id="juneau">
+<div class="daystory">
+  <div class="storytext"><div class="daynum">DAY 5 • JUNEAU</div><h2>Whales before<br>the glacier.</h2><p>วันนี้เป็น excursion day ที่คุ้มสุดของทริป: ออกเรือเล็กดู humpback ก่อน แล้วต่อ Mendenhall Glacier / Nugget Falls. ได้ทั้ง wildlife และ landscape ในวันเดียว</p></div>
+  <div class="frame"><img data-srcs="https://images.squarespace-cdn.com/content/v1/5fb210d07f71d5494d254bb9/49a87655-57d9-4e2c-9a1d-aef6a5b435c0/Large%2B%284800px%2Blongest%2Bedge%2C%2BStandard%2Bprint%2C%2BA4%29_WW1440344.jpg?format=2500w|https://frontiersuites.com/wp-content/uploads/2023/08/Alaska_whale_watching_2011-e1558350716251.jpg"><div class="label">Whale watching • Juneau</div></div>
+</div>
+<div class="daystory reverse">
+  <div class="frame"><img data-srcs="https://media.ktoo.org/2013/08/HBryant_nugget-falls-1.jpg|https://www.inquirer.com/resizer/v2/IEWEARCQYVEOPF3YE55WV3PCPE.jpg?auth=7ed671de81c2294f04b10469fa41addc4643ad780659d9a3ac518f3756aa4d2f&height=900&smart=true&width=1200"><div class="label">Mendenhall Glacier + Nugget Falls</div></div>
+  <div class="storytext"><div class="daynum">SAME DAY • EASY WALK</div><h2>Blue ice.<br>Big waterfall.</h2><p>Nugget Falls trail เป็นทางค่อนข้างง่ายและ low elevation gain จึงเข้ากับแพลนที่ไม่อยาก hike หนัก แต่ยังได้ภาพ glacier + waterfall ชัดมาก</p></div>
+</div>
+</section>
+
+<section id="ports">
+<div class="eyebrow">PORT DAYS</div><div class="headline serif">Little towns,<br>big scenery.</div>
+<div class="mosaic">
+  <div class="shot big"><img data-srcs="https://smallshipadventurecruises.com/wp-content/uploads/1742139911115.jpg|https://www.celebritycruises.com/content/dam/celebrity/new-images/destinations/alaska/ketchikan/creek-street-ketchikan-alaska-3840x2160.jpg"><div class="cap"><h3>Ketchikan</h3><p>Creek Street • boardwalk • rainforest mood</p></div></div>
+  <div class="shot wide"><img data-srcs="https://www.worldatlas.com/upload/b8/22/ac/skagway-alaska.jpg|https://www.alaska.org/sites/default/files/styles/hero/public/2021-02/White%20Pass%20Railroad.jpg"><div class="cap"><h3>Skagway</h3><p>historic town + White Pass railway</p></div></div>
+  <div class="shot"><img data-srcs="https://media.timeout.com/images/106021255/1372/772/image.jpg|https://www.travelalaska.com/sites/default/files/styles/inline_image/public/2025-01/Alaska%20Railroad_2022_Traveling%20Newlyweds%20%281%29.jpg?itok=4jYnHYxR"><div class="cap"><h3>One dome-train day</h3><p>พอเป็น highlight ไม่แย่งพื้นที่กิจกรรมอื่น</p></div></div>
+  <div class="shot"><img data-srcs="https://i.pinimg.com/736x/18/9f/42/189f42b7944514d0c24464aff23f65da--alaska-train-alaska-summer.jpg|https://s.hdnux.com/photos/36/56/60/8055863/8/1200x0.jpg"><div class="cap"><h3>Alaska Railroad</h3><p>Anchorage → Denali</p></div></div>
+</div>
+</section>
+
+<section id="denali" class="dark">
+<div class="daystory">
+  <div class="storytext"><div class="daynum">DAYS 10–12 • DENALI</div><h2>Now the ship<br>disappears.</h2><p>ครึ่งหลังเปลี่ยนอารมณ์จากทะเลเป็น tundra และ wildlife. มี full day ใน National Park + อีกหนึ่ง buffer day เผื่อเมฆบังภูเขาหรืออยากพัก</p></div>
+  <div class="frame"><img data-srcs="https://upload.wikimedia.org/wikipedia/commons/e/ea/Moose_and_Denali_%28dfa257a2-0b01-4656-b5ba-bf00f468ee9e%29.jpg"><div class="label">Denali • mountain + moose</div></div>
+</div>
+<div class="gallery-scroll">
+  <div class="shot"><img data-srcs="https://cdn.mos.cms.futurecdn.net/sBnpBKRoz9fe5TsVBEK2BM-1600-80.jpg|https://www.nps.gov/dena/learn/nature/images/bear-grass.jpg"><div class="cap"><h3>Grizzly</h3></div></div>
+  <div class="shot"><img data-srcs="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Moose_in_Denali_National_Park.jpg/1280px-Moose_in_Denali_National_Park.jpg"><div class="cap"><h3>Moose</h3></div></div>
+  <div class="shot"><img data-srcs="https://media.timeout.com/images/106021255/1372/772/image.jpg|https://www.travelalaska.com/sites/default/files/styles/inline_image/public/2025-01/Alaska%20Railroad_2022_Traveling%20Newlyweds%20%281%29.jpg?itok=4jYnHYxR"><div class="cap"><h3>GoldStar Dome</h3><p>หนึ่งวันรถไฟที่ตั้งใจเก็บไว้</p></div></div>
+</div>
+</section>
+
+<section id="timeline">
+<div class="eyebrow">14-DAY FLOW</div><div class="headline serif">A trip that still<br>has room to breathe.</div><p class="lead">กดแต่ละวันเพื่อเปิดรายละเอียด</p><div class="timeline" id="days"></div>
+</section>
+
+
+<section id="calendar">
+  <div class="eyebrow">COUNTDOWN TO ALASKA 2028</div>
+  <div class="headline serif">Book early.<br>Pay slowly.</div>
+  <p class="lead">สมมติออกเดินทางปลาย June 2028 — แผนนี้ตั้งใจให้ visa เสร็จก่อนเดินทางประมาณ 6 เดือน และไม่ต้องจ่ายก้อนใหญ่ทุกอย่างพร้อมกัน</p>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0">
+    <div class="budgetbox"><div class="eyebrow">TRIP FUND</div><div style="font-family:Georgia,serif;font-size:48px">฿360K</div><p>งบเป้าหมายสำหรับ 2 คน</p></div>
+    <div class="budgetbox"><div class="eyebrow">SAVE FROM OCT 2026</div><div style="font-family:Georgia,serif;font-size:48px">฿18K</div><p>ต่อเดือนรวมกัน → ฿9K/คน/เดือน</p></div>
+    <div class="budgetbox"><div class="eyebrow">SAFER TARGET</div><div style="font-family:Georgia,serif;font-size:48px">฿20K</div><p>ต่อเดือนรวมกัน → มีโอกาสแตะ ฿400K ภายใน May 2028</p></div>
+  </div>
+
+  <div class="timeline">
+    <div class="day open"><div class="dnum">NOW</div><div><h4>Sep–Oct 2026 — Lock the cruise first</h4><small>21 months before trip</small></div><span class="tag">BOOK</span><div class="detail" style="display:block">2028 Alaska ของ Princess เปิดขายแล้วตั้งแต่ Aug 2026. ถ้าอยากได้ Balcony + Glacier Bay + วันที่ปลาย Jun/ต้น Jul ผมให้ cruise เป็นสิ่งแรกที่จอง เพราะ cabin/date ที่ชอบมีตัวเลือกจำกัดกว่าตั๋วเครื่องบิน.</div></div>
+
+    <div class="day open"><div class="dnum">2026</div><div><h4>Oct–Dec 2026 — Start Alaska Fund</h4><small>฿18–20K / month for two</small></div><span class="tag">SAVE</span><div class="detail" style="display:block">ตั้ง auto-transfer แยกบัญชีทริป: base plan ฿18,000/เดือน; ถ้าอยากมี buffer ถึง ฿400K ให้ใช้ ฿20,000/เดือน. เป้าปลายปี: ฿54–60K.</div></div>
+
+    <div class="day open"><div class="dnum">Q1</div><div><h4>Jan–Mar 2027 — Cruise watch + passport check</h4><small>15–18 months before</small></div><span class="tag">CHECK</span><div class="detail" style="display:block">เช็ก passport ทั้งคู่ให้เหลืออายุเพียงพอสำหรับ 2028 และดูราคา cruise เป็นระยะ ถ้าจองแบบ refundable/flexible ได้จะเหมาะกับทริปที่ยังห่าง.</div></div>
+
+    <div class="day open"><div class="dnum">Q2</div><div><h4>Apr–Jun 2027 — Decide exact 14-day window</h4><small>12–15 months before</small></div><span class="tag">DATE</span><div class="detail" style="display:block">ล็อก sailing จริงก่อน แล้วค่อย fix Vancouver / Anchorage / Denali dates. เป้าคือ late June–early July 2028.</div></div>
+
+    <div class="day open"><div class="dnum">Q3</div><div><h4>Jul–Sep 2027 — Denali lodging shortlist</h4><small>9–12 months before</small></div><span class="tag">LAND</span><div class="detail" style="display:block">เลือกที่พัก Denali 2 คืน + Anchorage และ Vancouver. ยังไม่จำเป็นต้องซื้อทุก activity พร้อมกัน แต่ควรรู้ว่าต้องการ GoldStar ขาขึ้นและ Denali bus/tour วันไหน.</div></div>
+
+    <div class="day open"><div class="dnum">Q4</div><div><h4>Oct–Nov 2027 — Flights + land bookings</h4><small>7–9 months before</small></div><span class="tag">FLIGHT</span><div class="detail" style="display:block">เริ่มจริงจังกับ open-jaw BKK→Vancouver / Anchorage→BKK และจองโรงแรมที่ยกเลิกได้. ถ้าราคา flight ดีและ itinerary ลงตัวค่อย ticket.</div></div>
+
+    <div class="day open"><div class="dnum">VISA</div><div><h4>Dec 2027–Jan 2028 — U.S. + Canada visa</h4><small>ประมาณ 6–7 months before</small></div><span class="tag">IMPORTANT</span><div class="detail" style="display:block">นี่คือช่วงที่ผมอยากให้ยื่นจริง: มี cruise itinerary / flight plan / financial trail พร้อมแล้ว แต่ยังเหลือ buffer เยอะ. U.S. B1/B2 ปัจจุบันมีค่าธรรมเนียม US$185/คนและโดยทั่วไปต้อง interview; Canada visitor visa ปัจจุบัน CAD100/คน + biometrics CAD85/คนถ้าต้องทำ. กฎปี 2027–28 ต้องเช็กใหม่ก่อนยื่น.</div></div>
+
+    <div class="day open"><div class="dnum">FEB</div><div><h4>Feb 2028 — Visa buffer</h4><small>4–5 months before</small></div><span class="tag">BUFFER</span><div class="detail" style="display:block">เผื่อ administrative processing, biometrics, ขอเอกสารเพิ่ม หรือ appointment ขยับ. เป้าคือไม่เอาเรื่อง visa ไปเสี่ยงช่วง 1–2 เดือนสุดท้าย.</div></div>
+
+    <div class="day open"><div class="dnum">MAR</div><div><h4>Mar 2028 — Cruise final payment zone</h4><small>~120 days before</small></div><span class="tag">PAY</span><div class="detail" style="display:block">ตามเงื่อนไข Princess สำหรับ booking ใหม่ปัจจุบัน final payment ของ cruise ≤44 วันอยู่ที่ 120 วันก่อน departure. ใช้ booking confirmation จริงเป็นตัวตัดสิน เพราะ policy อาจเปลี่ยนก่อน 2028.</div></div>
+
+    <div class="day open"><div class="dnum">APR</div><div><h4>Apr 2028 — Book experiences</h4><small>2–3 months before</small></div><span class="tag">FUN</span><div class="detail" style="display:block">ล็อก Juneau whale + Mendenhall, White Pass, Alaska Railroad GoldStar, Denali bus/tour และ Whittier→Anchorage transfer. ตรงนี้เป็นเดือนที่เงินออกหลายรายการ จึงควรมี trip fund สะสมไว้แล้ว.</div></div>
+
+    <div class="day open"><div class="dnum">MAY</div><div><h4>May 2028 — Finish the fund</h4><small>1–2 months before</small></div><span class="tag">READY</span><div class="detail" style="display:block">ถ้าเก็บ ฿18K/เดือนตั้งแต่ Oct 2026 ถึง May 2028 = ฿360K. ถ้าเก็บ ฿20K/เดือน = ฿400K. จากนี้เหลือ insurance, eSIM, clothes/gear และ spending money.</div></div>
+
+    <div class="day open"><div class="dnum">JUN</div><div><h4>Late Jun 2028 — ALASKA ✦</h4><small>14 days</small></div><span class="tag">GO</span><div class="detail" style="display:block">บินเข้า Vancouver ก่อนเรืออย่างน้อย 1 คืน แล้วเริ่ม Vancouver → Alaska cruise → Anchorage → Denali.</div></div>
+  </div>
+
+  <div style="margin-top:28px;background:#102b3a;color:white;border-radius:30px;padding:28px">
+    <div class="eyebrow" style="color:#bcd5dd">SAVING CHECKPOINTS • ฿18K/MONTH</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px">
+      <div><b style="font-size:28px">฿54K</b><br><small>Dec 2026</small></div>
+      <div><b style="font-size:28px">฿162K</b><br><small>Jun 2027</small></div>
+      <div><b style="font-size:28px">฿270K</b><br><small>Dec 2027</small></div>
+      <div><b style="font-size:28px">฿360K</b><br><small>May 2028</small></div>
+    </div>
+  </div>
+</section>
+<style>
+@media(max-width:760px){
+  #calendar>div[style*="repeat(3"]{grid-template-columns:1fr!important}
+  #calendar div[style*="repeat(4"]{grid-template-columns:1fr 1fr!important}
+  #calendar .day{grid-template-columns:72px 1fr}
+}
+</style>
+
+<section id="budget">
+<div class="budget">
+<div class="budgetbox"><div class="eyebrow">TARGET FOR TWO</div><div class="total">฿360K</div><p class="lead" style="font-size:18px">Target ฿350–380K • hard ceiling ฿400K</p><div class="toggle"><button class="active" onclick="setCabin('balcony',this)">Balcony</button><button onclick="setCabin('interior',this)">Interior</button></div><div id="budgetBars"></div></div>
+<div class="budgetbox"><div class="eyebrow">PRIORITY SPEND</div><h2 class="serif" style="font-size:48px;margin:.3em 0">Spend on experiences,<br>not luxury.</h2><p>Balcony cabin • whale watching • White Pass • Alaska Railroad GoldStar 1 ขา • Denali access.</p><p style="color:#687f88;font-size:13px">ราคา 2028 ยังต้อง re-check เมื่อ sailing / flight / land inventory เปิดครบ</p></div>
+</div>
+</section>
+
+<section>
+<div class="eyebrow">WHY THIS ROUTE IS REALISTIC</div><div class="headline serif">Pretty, but grounded.</div>
+<div class="sources">
+<p><b>Planning update:</b> Princess เปิด 2028 Alaska แล้ว และแนะนำจอง Alaska 6–12 เดือนล่วงหน้าเพื่อ selection ที่ดี โดย Glacier Bay / popular cabins อาจเต็มเร็ว. สำหรับแผนนี้จึงเลือกจอง cruise เร็วกว่านั้นได้ถ้าเจอ balcony/date ที่ใช่.</p>
+<p>Visa planning: U.S. visitor visa fee ปัจจุบัน US$185; Canada visitor visa CAD100 และ biometrics CAD85 ต่อคนเมื่อ applicable. Canada แนะนำ bank statements อย่างน้อย 6 เดือนเป็นหลักฐานทางการเงิน จึงเหมาะกับการเริ่ม trip fund ตั้งแต่ตอนนี้.</p>
+<p>Glacier Bay: NPS ระบุ cruise ship ปกติใช้เวลาราว 9–10 ชั่วโมงในอุทยาน และมี Park Rangers ขึ้นเรือให้ข้อมูลระหว่างวัน.</p>
+<p>Mendenhall: แหล่งข้อมูล Juneau ระบุมี short/easy viewpoints และ Nugget Falls เป็นเส้นทางที่ไม่ชันมาก เหมาะกับวันที่ไม่อยาก hike หนัก.</p>
+<p>Denali: Pretty Rocks Bridge เสร็จใน Sep 2026 และ NPS คาด full public bus service ไป west end กลับมาใน 2027; สำหรับ 2028 ควรเช็กสถานะอีกครั้งก่อนจอง.</p>
+<p>Sources: <a href="https://www.nps.gov/glba/planyourvisit/cruise.htm" target="_blank">NPS Glacier Bay</a> · <a href="https://www.traveljuneau.com/things-to-do/glacier-sightseeing/mendenhall-glacier/" target="_blank">Travel Juneau</a> · <a href="https://www.nps.gov/dena/learn/news/pretty-rocks-bridge-complete-090226.htm" target="_blank">NPS Denali</a></p>
+</div>
+</section>
+
+<section class="cta">
+<img data-srcs="https://media.timeout.com/images/106021255/1372/772/image.jpg|https://img.cruisecritic.net/cms-sb/f/1005231/a9eaae5b53/alaska_princess-cruises_glacier-bay_article_8253.jpg?auto=format%2Cenhance&crop=entropy&fit=crop&ixlib=react-9.8.1&q=55&w=2048">
+<div class="cta-inner"><div class="eyebrow" style="color:#d8e8ed">SO…</div><h2>Alaska<br>2028?</h2><p style="font-size:22px">ship • whales • glaciers • little towns • wildlife • one great train day</p></div>
+</section>
+
+<script>
+function loadImg(img){
+  const urls=(img.dataset.srcs||"").split("|").filter(Boolean);
+  let i=0;
+  function next(){
+    if(i>=urls.length){
+      const d=document.createElement("div"); d.className="fail"; d.innerHTML="ALASKA<br><small>photo unavailable</small>";
+      img.replaceWith(d); return;
+    }
+    img.src=urls[i++];
+  }
+  img.onerror=next; next();
+}
+document.querySelectorAll("img[data-srcs]").forEach(loadImg);
+
+const days=[
+[1,"Bangkok → Vancouver","Travel","พัก Vancouver 1 คืนก่อน embarkation"],
+[2,"Vancouver → Alaska","Cruise","ขึ้นเรือ • sail-away • Balcony cabin"],
+[3,"Inside Passage","Slow sea day","พักบนเรือ ดูวิวและใช้เวลาใน ship"],
+[4,"Ketchikan","Port day","Creek Street + waterfront แบบไม่รีบ"],
+[5,"Juneau","Whale + glacier","Whale watching + Mendenhall / Nugget Falls"],
+[6,"Skagway","Rail + town","White Pass Railway แล้วกลับมาเดิน Skagway"],
+[7,"Glacier Bay","Hero day","scenic cruising ทั้งวัน • NPS ranger onboard"],
+[8,"College Fjord","Glacier day","ชม fjord ก่อนคืนสุดท้ายบนเรือ"],
+[9,"Whittier → Anchorage","Reset day","ลงเรือแล้วพัก ไม่ต่อ Denali ทันที"],
+[10,"Anchorage → Denali","Scenic rail","GoldStar Dome ขาขึ้นครั้งเดียว"],
+[11,"Denali National Park","Wildlife","park bus/tour • wildlife spotting"],
+[12,"Denali","Weather buffer","เผื่อเมฆ / พัก / easy trail"],
+[13,"Denali → Anchorage","Transfer","กลับ Anchorage ด้วย coach"],
+[14,"Anchorage → Bangkok","Home","วันถึงไทยจริงอาจเป็น Day 15"]
+];
+document.getElementById("days").innerHTML=days.map(d=>`<div class="day" onclick="this.classList.toggle('open')"><div class="dnum">${String(d[0]).padStart(2,"0")}</div><div><h4>${d[1]}</h4><small>${d[2]}</small></div><span class="tag">tap</span><div class="detail">${d[3]}</div></div>`).join("");
+
+const sets={
+balcony:[["Flights",100,28],["7-night Balcony Cruise",110,31],["Hotels",40,11],["Rail + transfers",32,9],["Excursions + Denali",36,10],["Food + visa + misc.",42,12]],
+interior:[["Flights",100,32],["7-night Interior Cruise",75,24],["Hotels",40,13],["Rail + transfers",32,10],["Excursions + Denali",36,12],["Food + visa + misc.",42,13]]
+};
+function renderBudget(key){let a=sets[key],t=a.reduce((s,x)=>s+x[1],0);document.querySelector(".total").innerText=`฿${t}K`;document.getElementById("budgetBars").innerHTML=a.map(x=>`<div><div style="display:flex;justify-content:space-between"><span>${x[0]}</span><b>฿${x[1]}K</b></div><div class="bar"><span style="width:${x[2]*2.4}%"></span></div></div>`).join("")}
+function setCabin(k,e){document.querySelectorAll(".toggle button").forEach(b=>b.classList.remove("active"));e.classList.add("active");renderBudget(k)} renderBudget("balcony");
+</script>
+<div style="padding:14px 7vw 28px;font-size:11px;color:#78909a;background:#f4f7f6">
+    Photo fixes: Denali/moose images from U.S. National Park Service via Wikimedia Commons; balcony cabin image from Wikimedia Commons.
+    </div></body>
+</html>
