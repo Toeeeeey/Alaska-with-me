@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Plan an unforgettable 2028 Alaska journey through glaciers, wildlife, railways, and coastal towns.">
+  <meta name="theme-color" content="#061321">
+  <title>Alaska 2028 — Into the Wild North</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/site.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Alaska 2028 home"><span class="brand-mark">A</span><span>ALASKA <b>2028</b></span></a>
+    <nav aria-label="Main navigation"><a href="#journey">The journey</a><a href="#ideas">Trip ideas</a></nav>
+  </header>
+
+  <main>
+    <section class="home-hero">
+      <img src="assets/images/glacier-bay.jpg" alt="A broad glacier flowing between rugged mountains in Glacier Bay">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow">THE LAST FRONTIER · SUMMER 2028</p>
+        <h1>Into the<br><em>Wild North</em></h1>
+        <p class="hero-copy">Ten unforgettable ways to experience Alaska—from blue-ice fjords and breaching whales to legendary rail journeys and untamed wildlife.</p>
+        <a class="primary-button" href="#journey">Explore the journey <span aria-hidden="true">↓</span></a>
+      </div>
+      <p class="hero-caption">Glacier Bay National Park, Alaska</p>
+    </section>
+
+    <section class="intro section-shell" id="journey">
+      <div>
+        <p class="eyebrow">CHOOSE YOUR ADVENTURE</p>
+        <h2>Ten stories.<br>One remarkable place.</h2>
+      </div>
+      <p>Open any card to discover what makes each experience special, when to go, and what to look for along the way.</p>
+    </section>
+
+    <section class="card-grid section-shell" aria-label="Alaska experiences">
+      <a class="story-card" href="places/ship-life.html"><img src="assets/images/ship-life.jpg" alt="Star Princess sailing beside Dawes Glacier in Alaska"><span class="card-number">01</span><span class="card-copy"><small>ON THE WATER</small><strong>Ship Life</strong><span>Wake up somewhere wild</span></span></a>
+      <a class="story-card tall" href="places/glacier-bay.html"><img src="assets/images/glacier-bay.jpg" alt="Glacier and mountains in Glacier Bay"><span class="card-number">02</span><span class="card-copy"><small>NATIONAL PARK</small><strong>Glacier Bay</strong><span>Where ice meets the sea</span></span></a>
+      <a class="story-card" href="places/whales.html"><img src="assets/images/whales.jpg" alt="Humpback whale breaching"><span class="card-number">03</span><span class="card-copy"><small>WILDLIFE</small><strong>Humpback Whales</strong><span>Watch the ocean come alive</span></span></a>
+      <a class="story-card" href="places/mendenhall.html"><img src="assets/images/mendenhall.jpg" alt="Mendenhall Glacier in winter"><span class="card-number">04</span><span class="card-copy"><small>JUNEAU</small><strong>Mendenhall</strong><span>Walk into the ice age</span></span></a>
+      <a class="story-card wide" href="places/ketchikan.html"><img src="assets/images/ketchikan.jpg" alt="Colorful historic buildings along Creek Street in Ketchikan"><span class="card-number">05</span><span class="card-copy"><small>INSIDE PASSAGE</small><strong>Ketchikan</strong><span>Rainforest, totems &amp; creekside charm</span></span></a>
+      <a class="story-card" href="places/white-pass.html"><img src="assets/images/white-pass.jpg" alt="White Pass train approaching a mountain tunnel"><span class="card-number">06</span><span class="card-copy"><small>SKAGWAY</small><strong>White Pass Railway</strong><span>Climb the gold-rush trail</span></span></a>
+      <a class="story-card tall" href="places/alaska-railroad.html"><img src="assets/images/alaska-railroad.jpg" alt="Panoramic glass-dome car aboard the Alaska Railroad"><span class="card-number">07</span><span class="card-copy"><small>SCENIC RAIL</small><strong>Alaska Railroad</strong><span>The journey is the destination</span></span></a>
+      <a class="story-card" href="places/denali.html"><img src="assets/images/denali.jpg" alt="Denali reflected in Wonder Lake"><span class="card-number">08</span><span class="card-copy"><small>NATIONAL PARK</small><strong>Denali</strong><span>Stand beneath North America's highest peak</span></span></a>
+      <a class="story-card" href="places/moose.html"><img src="assets/images/moose.jpg" alt="Moose in Denali National Park"><span class="card-number">09</span><span class="card-copy"><small>WILDLIFE</small><strong>Moose</strong><span>Meet Alaska's quiet giant</span></span></a>
+      <a class="story-card wide" href="places/grizzly.html"><img src="assets/images/grizzly.jpg" alt="Grizzly bear walking through Alaska wilderness"><span class="card-number">10</span><span class="card-copy"><small>WILDLIFE</small><strong>Grizzly Bear</strong><span>Respect the wild</span></span></a>
+    </section>
+
+    <section class="idea-board section-shell" id="ideas">
+      <div class="idea-heading"><p class="eyebrow">OUR SHARED SHORTLIST</p><h2>Trip Ideas</h2><p>Add an experience, a question, or a place you do not want to miss. Ideas are saved on this device.</p></div>
+      <form class="idea-form" id="idea-form">
+        <label for="idea-name">Your name</label><input id="idea-name" name="name" maxlength="30" placeholder="Name" required>
+        <label for="idea-text">Your idea</label><textarea id="idea-text" name="idea" maxlength="240" placeholder="What should we add to the Alaska plan?" required></textarea>
+        <button class="primary-button" type="submit">Add to the board</button>
+      </form>
+      <div class="idea-list" id="idea-list" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer><span>ALASKA 2028</span><span>Dream big. Travel north.</span></footer>
+</body>
+</html>
