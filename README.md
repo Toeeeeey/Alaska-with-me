@@ -2,7 +2,7 @@
 
 A complete static travel website built for GitHub and Vercel.
 
-The main page includes a late-May 2028 itinerary, per-person planning budget, interactive savings calculator, and a device-local Trip Ideas board.
+The main page includes a focused 13-day late-May 2028 itinerary, checked per-person planning costs, an interactive ฿220,000 savings target, and a device-local Trip Ideas board.
 
 ## Deploy
 
